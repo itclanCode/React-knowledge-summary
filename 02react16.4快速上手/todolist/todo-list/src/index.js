@@ -1,5 +1,6 @@
 import React from 'react'; // 加载React这个库，让我们能使用组件
 import ReactDOM from 'react-dom';
+import './style.css'
 import './index.css';
 // App组件,大写字母开头
 import TodoList from './TodoList';

@@ -48,6 +48,13 @@ React组件中必须要有render函数,负责这个组件要显示的内容
 
 ### 代码优化
 
+### React中如何使用css样式修饰
+
+在jsx语法中,加样式
+style={{background:'red',color:'#fff'}}
+
+React.fragment
+
 
 
 

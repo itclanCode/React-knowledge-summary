@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,Fragment } from 'react';
 import TodoItem from './Todoitem'
 
 
@@ -10,6 +10,11 @@ class TodoList extends Component {
        list: [],
        inputValue:''
     }
+    // 做this改变
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleBtnClick = this.handleBtnClick.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    //this.handleItemClick = this.handleItemClick.bind(this);
   }
   handleBtnClick() {
         this.setState({
@@ -42,23 +47,33 @@ class TodoList extends Component {
             list:list
     })
   }
+  getToItems (){
+    return (
+       this.state.list.map((item,index) => {
+                 return (
+                    <TodoItem delete={this.handleDelete}
+                     content={item} 
+                     key={index} 
+                     index ={index} 
+                    />
+                 )
+                 // return <li key={index} onClick={this.handleItemClick}>{item}</li>
+        })
+    )
+  }
+
   render() {
     // jsx语法
     return (
-      <div className="App">
+      <Fragment>
           <div>
-              <input value={this.state.inputValue}  onChange={this.handleInputChange.bind(this)} />
-              <button onClick={this.handleBtnClick.bind(this)}>add</button>
+              <input value={this.state.inputValue}  onChange={this.handleInputChange} />
+              <button className="red-btn" style={{background:'red',color:'#fff'}} onClick={this.handleBtnClick}>add</button>
           </div>
           <ul>
-             {
-               this.state.list.map((item,index) => {
-                 return <TodoItem delete={this.handleDelete.bind(this)} content={item} key={index} index ={index} />
-                 // return <li key={index} onClick={this.handleItemClick.bind(this)}>{item}</li>
-               })
-             }
+             {this.getToItems()}
           </ul>
-      </div>
+      </Fragment>
     );
   }
 }
