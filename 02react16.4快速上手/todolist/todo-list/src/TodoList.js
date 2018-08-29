@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import TodoItem from './TodoItem'
+import TodoItem from './Todoitem'
 
 
 // App是类,组件,继承react中的Component
@@ -26,13 +26,21 @@ class TodoList extends Component {
           //console.log(e.target.value);
   }
 
-  handleItemClick(index){
+ /* handleItemClick(index){
           // console.log(index);
           const list = [...this.state.list];
           list.splice(index,1);
           this.setState({
             list:list
           })
+  }*/
+  handleDelete(index) {
+    console.log(index);
+    const list = [...this.state.list];
+          list.splice(index,1);
+          this.setState({
+            list:list
+    })
   }
   render() {
     // jsx语法
@@ -45,7 +53,8 @@ class TodoList extends Component {
           <ul>
              {
                this.state.list.map((item,index) => {
-                 return <li key={index} onClick={this.handleItemClick.bind(this)}>{item}</li>
+                 return <TodoItem delete={this.handleDelete.bind(this)} content={item} key={index} index ={index} />
+                 // return <li key={index} onClick={this.handleItemClick.bind(this)}>{item}</li>
                })
              }
           </ul>
