@@ -1,4 +1,4 @@
-### 课程内容
+### 主要内容
 
 基础内容-->坏境搭建-->基础语法-->原理进阶-->动画-->Redux-->Redux进阶->实战项目-->坏境搭建-->Header-->首页-->登录校验-->上线
 
@@ -66,7 +66,7 @@ import registerServiceWorker from './registerServiceWorker';
 组件就是网页中的一部分
 
 App.js就是一个简单的组件
-
+```
 class App extends React.Component {
     render(){
     return (
@@ -75,20 +75,23 @@ class App extends React.Component {
 }
 }
 export default App
+```
 定义了一个App类(组件)继承了React.Component类就可以了
 render()函数返回什么,页面就展示什么
-
+```
 import React,{Component} from 'react'
 
 import {component} from 'react'
 // 等价于
 import React from 'react'
 const Component = React.Component
+```
 
 ReactDOM展示页面的内容，后面在render中使用了jsx语法，那么就一定得引入React,不引入React，就编译不了jsx语法
 
 render()函数里面有html标签,那么都是jsx语法,避免编译出错,需要引入React
 凡是用到jsx语法的,都得引入React
+
 ### 2-5React中最基础的jsx语法
 
 在js里面写html标签,就称为jsx，在以前的js中插入html标签,往往需要用双引号给扩起来
